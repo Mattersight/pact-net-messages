@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7024B146-2CB2-4DE2-B079-58CF9C44640B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PactNetMessages</RootNamespace>
+    <AssemblyName>PactNetMessages</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\PactNetMessages.XML</DocumentationFile>
+    <NoWarn>1591</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\PactNetMessages.XML</DocumentationFile>
+    <NoWarn>1591</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.IO.Abstractions, Version=2.1.0.178, Culture=neutral, PublicKeyToken=96bf224d23c43e59, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Abstractions.2.1.0.178\lib\net40\System.IO.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Comparers\ComparisonFailure.cs" />
+    <Compile Include="Comparers\ComparisonResult.cs" />
+    <Compile Include="Comparers\DiffComparisonFailure.cs" />
+    <Compile Include="Comparers\ErrorMessageComparisonFailure.cs" />
+    <Compile Include="Comparers\IComparer.cs" />
+    <Compile Include="Infrastructure\Logging\ILocalLogMessageHandler.cs" />
+    <Compile Include="App_Packages\LibLog.4.2\LibLog.cs" />
+    <Compile Include="Infrastructure\Logging\LocalLogger.cs" />
+    <Compile Include="Infrastructure\Logging\LocalLogMessage.cs" />
+    <Compile Include="Infrastructure\Logging\LocalLogProvider.cs" />
+    <Compile Include="Infrastructure\Logging\LocalRollingLogFileMessageHandler.cs" />
+    <Compile Include="Configuration\Json\JsonConfig.cs" />
+    <Compile Include="IPactMessageBuilder.cs" />
+    <Compile Include="Matchers\FailedMatcherCheck.cs" />
+    <Compile Include="Matchers\IMatcher.cs" />
+    <Compile Include="Matchers\MatcherCheck.cs" />
+    <Compile Include="Matchers\MatcherCheckFailureType.cs" />
+    <Compile Include="Matchers\MatcherResult.cs" />
+    <Compile Include="Matchers\SuccessfulMatcherCheck.cs" />
+    <Compile Include="Mocks\IMockProvider.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Mocks\MockMq\Comparers\ContentsComparer.cs" />
+    <Compile Include="Mocks\MockMq\Comparers\IContentsComparer.cs" />
+    <Compile Include="Mocks\MockMq\Comparers\IMetaDataComparer.cs" />
+    <Compile Include="Mocks\MockMq\Comparers\MessageComparer.cs" />
+    <Compile Include="Mocks\MockMq\Comparers\MetaDataComparer.cs" />
+    <Compile Include="Mocks\MockMq\IMockMq.cs" />
+    <Compile Include="Mocks\MockMq\IMockMqRepository.cs" />
+    <Compile Include="Mocks\MockMq\Matchers\ContentMatcher.cs" />
+    <Compile Include="Mocks\MockMq\MockMq.cs" />
+    <Compile Include="Mocks\MockMq\MockMqRepository.cs" />
+    <Compile Include="Mocks\MockMq\Models\Message.cs" />
+    <Compile Include="Mocks\MockMq\Models\MessagePactFile.cs" />
+    <Compile Include="Mocks\MockMq\Validators\IMessageProviderValidator.cs" />
+    <Compile Include="Mocks\MockMq\Validators\MessageProviderValidator.cs" />
+    <Compile Include="Models\PactDetails.cs" />
+    <Compile Include="Models\PactFile.cs" />
+    <Compile Include="PactConfig.cs" />
+    <Compile Include="PactFailureException.cs" />
+    <Compile Include="Models\Interaction.cs" />
+    <Compile Include="Models\Pacticipant.cs" />
+    <Compile Include="PactMessageBuilder.cs" />
+    <Compile Include="PactVerifier.cs" />
+    <Compile Include="PactVerifierConfig.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="IPactVerifier.cs" />
+    <Compile Include="Models\ProviderState.cs" />
+    <Compile Include="Models\ProviderStates.cs" />
+    <Compile Include="Reporters\IReporter.cs" />
+    <Compile Include="Reporters\Outputters\ConsoleReportOutputter.cs" />
+    <Compile Include="Reporters\Outputters\FileReportOutputter.cs" />
+    <Compile Include="Reporters\Outputters\IReportOutputter.cs" />
+    <Compile Include="Reporters\Reporter.cs" />
+    <Compile Include="Validators\IPactValidator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="PactNetMessages.nuspec" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

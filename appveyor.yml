@@ -1,0 +1,42 @@
+version: "{build}"
+
+os: Visual Studio 2015
+
+install:
+  - git submodule update --init --recursive
+  - set PATH=C:\Program Files (x86)\MSBuild\14.0\Bin;%PATH%
+  - ps: .\Build\Setup-Build-Environment.ps1
+
+assembly_info:
+  patch: true
+  file: AssemblyInfo.*
+  assembly_version: "$(pactnet_assembly_version)"
+  assembly_file_version: "$(pactnet_assembly_version)"
+  assembly_informational_version: "$(pactnet_version)"
+
+deploy:
+  - provider: NuGet
+    skip_symbols: true
+    api_key:
+      secure: Vlw7m7mXEZ9XqlZBsQ4fzqDKjO8yTdtXhO9c04RnrD4zwhf6dx+lxBmC9TJ7EF6G
+    on:
+      appveyor_repo_tag: true
+
+artifacts:
+  - path: '**\Build\PactNet*.nupkg'
+  - path: '**\Build\coverage\*'
+
+configuration: Release
+
+build:
+  project: PactNet.sln
+  verbosity: normal
+
+before_build:
+  - nuget restore
+
+after_build:
+  - ps: .\Build\Publish-Release.ps1 -ReleaseVersionNumber "$env:PACTNET_VERSION"
+
+after_test:
+  - ps: .\Build\Tests-Coverage.ps1 -GenerateSummaryReport

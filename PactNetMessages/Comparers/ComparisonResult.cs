@@ -1,0 +1,67 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+
+namespace PactNetMessages.Comparers
+{
+    public class ComparisonResult
+    {
+        private readonly IList<ComparisonResult> _childResults = new List<ComparisonResult>();
+
+        private readonly IList<ComparisonFailure> _failures = new List<ComparisonFailure>();
+
+        public IEnumerable<ComparisonResult> ChildResults { get { return _childResults; } }
+
+        public IEnumerable<ComparisonFailure> Failures
+        {
+            get
+            {
+                var failuresDeep = new List<ComparisonFailure>();
+                GetChildComparisonResultFailures(this, failuresDeep);
+                return failuresDeep;
+            }
+        }
+
+        public bool HasFailure { get { return Failures.Any(); } }
+
+        public string Message { get; }
+
+        public int ShallowFailureCount { get { return _failures.Count(); } }
+
+        public ComparisonResult(string message = null)
+        {
+            Message = message;
+        }
+
+        public ComparisonResult(string messageFormat, params object[] args)
+        {
+            Message = String.Format(messageFormat, args);
+        }
+
+        public void RecordFailure(ComparisonFailure comparisonFailure)
+        {
+            _failures.Add(comparisonFailure);
+        }
+
+        public void AddChildResult(ComparisonResult comparisonResult)
+        {
+            if (comparisonResult == null)
+            {
+                return;
+            }
+
+            _childResults.Add(comparisonResult);
+        }
+
+        private static void GetChildComparisonResultFailures(ComparisonResult comparisonResult,
+            List<ComparisonFailure> fails)
+        {
+            fails.AddRange(comparisonResult._failures);
+            foreach (var childComparisonResult in comparisonResult.ChildResults)
+            {
+                GetChildComparisonResultFailures(childComparisonResult, fails);
+            }
+        }
+    }
+}
