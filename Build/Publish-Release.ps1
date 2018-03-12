@@ -18,7 +18,7 @@ $NuGetExe = Join-Path $BuildRoot -ChildPath '..\.nuget\nuget.exe'
 Write-Output $ReleaseVersionNumber
 
 # Build the NuGet package
-$ProjectPath = Join-Path -Path $SolutionRoot -ChildPath 'Build\PactNetMessages.nuspec'
+$ProjectPath = Join-Path -Path $SolutionRoot -ChildPath 'PactNetMessages\PactNetMessages.nuspec'
 & $NuGetExe pack $ProjectPath -Prop Configuration=Release -OutputDirectory $BuildRoot -Version $ReleaseVersionNumber
 if (-not $?)
 {

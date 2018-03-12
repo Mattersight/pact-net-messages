@@ -7,7 +7,7 @@
     <owners>Mattersight</owners>
     <licenseUrl>https://github.com/Mattersight/pact-net-messages/blob/master/LICENSE.txt</licenseUrl>
     <projectUrl>https://github.com/Mattersight/pact-net-messages</projectUrl>
-	<iconUrl>https://github.com/Mattersight/pact-net-messages/blob/master/logo.png</iconUrl>
+	<iconUrl>https://raw.githubusercontent.com/Mattersight/pact-net-messages/master/logo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Define a pact contract between non-HTTP asynchronous service consumers and providers, enabling consumer driven contract testing.</description>
     <dependencies>
