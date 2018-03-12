@@ -1,3 +1,3 @@
-A .NET implementation of the Ruby consumer driven contract library, Pact (https://github.com/realestate-com-au/pact).
+Define a pact contract between non-HTTP asynchronous service consumers and providers, enabling consumer driven contract testing.
 
-Everything you need to get started is on github (https://github.com/SEEK-Jobs/pact-net/blob/master/README.md)
+Everything you need to get started is on github (https://github.com/Mattersight/pact-net-messages/blob/master/README.md)
