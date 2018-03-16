@@ -3,8 +3,6 @@
 	[ValidatePattern('\d\.\d\.*')]
 	[string]
 	$ReleaseVersionNumber,
-
-	[switch]$Push,
 	
 	[string]$ApiKey
 )
@@ -26,13 +24,10 @@ if (-not $?)
 }
 
 # Upload the NuGet package
-if ($Push)
+if($ApiKey)
 {
-	if($ApiKey)
-	{
-		& $NuGetExe setApiKey $ApiKey
-	}
-
+	& $NuGetExe setApiKey $ApiKey
+	
 	$NuPkgPath = Join-Path -Path $BuildRoot -ChildPath "PactNetMessages.$ReleaseVersionNumber.nupkg"
 	& $NuGetExe push $NuPkgPath -Source https://www.nuget.org
 	if (-not $?)
