@@ -4,7 +4,6 @@ using System.Linq;
 using Newtonsoft.Json;
 using PactNetMessages.Extensions;
 using PactNetMessages.Logging;
-using PactNetMessages.Mocks.MockHttpService.Models;
 using PactNetMessages.Mocks.MockMq.Models;
 using PactNetMessages.Mocks.MockMq.Validators;
 using PactNetMessages.Models;

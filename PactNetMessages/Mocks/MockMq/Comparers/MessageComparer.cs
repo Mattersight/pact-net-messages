@@ -1,5 +1,5 @@
 ﻿using PactNetMessages.Comparers;
-using PactNetMessages.Mocks.MockHttpService.Models;
+using PactNetMessages.Mocks.MockMq.Models;
 
 
 namespace PactNetMessages.Mocks.MockMq.Comparers

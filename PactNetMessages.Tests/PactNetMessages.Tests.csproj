@@ -1,136 +1,20 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\xunit.core.2.3.1\build\xunit.core.props" Condition="Exists('..\packages\xunit.core.2.3.1\build\xunit.core.props')" />
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{658C5A6B-64AF-4602-8E34-5074BD32CC1D}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PactNetMessages.Tests</RootNamespace>
-    <AssemblyName>PactNetMessages.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
-    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="Microsoft.CSharp">
-      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Microsoft.CSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.IO.Compression" />
-    <Reference Include="System.Net" />
-    <Reference Include="xunit.assert, Version=2.3.1.3858, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
-      <HintPath>..\packages\xunit.assert.2.3.1\lib\netstandard1.1\xunit.assert.dll</HintPath>
-    </Reference>
-    <Reference Include="xunit.core, Version=2.3.1.3858, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
-      <HintPath>..\packages\xunit.extensibility.core.2.3.1\lib\netstandard1.1\xunit.core.dll</HintPath>
-    </Reference>
-    <Reference Include="xunit.execution.desktop, Version=2.3.1.3858, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
-      <HintPath>..\packages\xunit.extensibility.execution.2.3.1\lib\net452\xunit.execution.desktop.dll</HintPath>
-    </Reference>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.5.0" />
+    <PackageReference Include="xunit" Version="2.3.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.3.1" />
+    <DotNetCliToolReference Include="dotnet-xunit" Version="2.3.1" />
   </ItemGroup>
+
   <ItemGroup>
-    <Compile Include="Models\InteractionTests.cs" />
-    <Compile Include="Models\PactDetailsTests.cs" />
-    <Compile Include="Models\PactFileTests.cs" />
-    <Compile Include="Models\ProviderStatesTests.cs" />
-    <Compile Include="Models\ProviderStateTests.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Specifications\MessageBodyTests.cs" />
-    <Compile Include="Specifications\TestCase.cs" />
+    <ProjectReference Include="..\PactNetMessages\PactNetMessages.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-    <None Include="Specifications\TestCases\Message\Body\array at top level.json" />
-    <None Include="Specifications\TestCases\Message\Body\array in different order.json" />
-    <None Include="Specifications\TestCases\Message\Body\array size less than required.json" />
-    <None Include="Specifications\TestCases\Message\Body\array with at least one element matching by example.json" />
-    <None Include="Specifications\TestCases\Message\Body\array with at least one element not matching example type.json" />
-    <None Include="Specifications\TestCases\Message\Body\array with nested array that does not match.json" />
-    <None Include="Specifications\TestCases\Message\Body\array with nested array that matches.json" />
-    <None Include="Specifications\TestCases\Message\Body\array with regular expression in element.json" />
-    <None Include="Specifications\TestCases\Message\Body\array with regular expression that does not match in element.json" />
-    <None Include="Specifications\TestCases\Message\Body\different value found at index.json" />
-    <None Include="Specifications\TestCases\Message\Body\different value found at key.json" />
-    <None Include="Specifications\TestCases\Message\Body\matches with regex with bracket notation.json" />
-    <None Include="Specifications\TestCases\Message\Body\matches with regex.json" />
-    <None Include="Specifications\TestCases\Message\Body\matches with type.json" />
-    <None Include="Specifications\TestCases\Message\Body\matches.json" />
-    <None Include="Specifications\TestCases\Message\Body\missing index.json" />
-    <None Include="Specifications\TestCases\Message\Body\missing key.json" />
-    <None Include="Specifications\TestCases\Message\Body\no body no content type.json" />
-    <None Include="Specifications\TestCases\Message\Body\no body.json" />
-    <None Include="Specifications\TestCases\Message\Body\not null found at key when null expected.json" />
-    <None Include="Specifications\TestCases\Message\Body\not null found in array when null expected.json" />
-    <None Include="Specifications\TestCases\Message\Body\null found at key where not null expected.json" />
-    <None Include="Specifications\TestCases\Message\Body\null found in array when not null expected.json" />
-    <None Include="Specifications\TestCases\Message\Body\number found at key when string expected.json" />
-    <None Include="Specifications\TestCases\Message\Body\number found in array when string expected.json" />
-    <None Include="Specifications\TestCases\Message\Body\string found at key when number expected.json" />
-    <None Include="Specifications\TestCases\Message\Body\string found in array when number expected.json" />
-    <None Include="Specifications\TestCases\Message\Body\unexpected index with not null value.json" />
-    <None Include="Specifications\TestCases\Message\Body\unexpected index with null value.json" />
-    <None Include="Specifications\TestCases\Message\Body\unexpected key with not null value.json" />
-    <None Include="Specifications\TestCases\Message\Body\unexpected key with null value.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\PactNetMessages\PactNetMessages.csproj">
-      <Project>{7024b146-2cb2-4de2-b079-58cf9c44640b}</Project>
-      <Name>PactNetMessages</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Analyzer Include="..\packages\xunit.analyzers.0.8.0\analyzers\dotnet\cs\xunit.analyzers.dll" />
-    <Analyzer Include="..\packages\xunit.analyzers.0.8.0\analyzers\dotnet\cs\xunit.analyzers.dll" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\xunit.core.2.3.1\build\xunit.core.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xunit.core.2.3.1\build\xunit.core.props'))" />
-    <Error Condition="!Exists('..\packages\xunit.core.2.3.1\build\xunit.core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xunit.core.2.3.1\build\xunit.core.targets'))" />
-  </Target>
-  <Import Project="..\packages\xunit.core.2.3.1\build\xunit.core.targets" Condition="Exists('..\packages\xunit.core.2.3.1\build\xunit.core.targets')" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+
 </Project>

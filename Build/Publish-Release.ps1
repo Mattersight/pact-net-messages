@@ -34,7 +34,7 @@ if ($Push)
 	}
 
 	$NuPkgPath = Join-Path -Path $BuildRoot -ChildPath "PactNetMessages.$ReleaseVersionNumber.nupkg"
-	& $NuGetExe push $NuPkgPath
+	& $NuGetExe push $NuPkgPath -Source https://www.nuget.org
 	if (-not $?)
 	{
 		throw 'The NuGet process returned an error code.'

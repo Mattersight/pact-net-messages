@@ -2,7 +2,6 @@
 using System.Linq;
 using PactNetMessages.Comparers;
 using PactNetMessages.Logging;
-using PactNetMessages.Mocks.MockHttpService.Models;
 using PactNetMessages.Mocks.MockMq.Comparers;
 using PactNetMessages.Mocks.MockMq.Models;
 using PactNetMessages.Models;
