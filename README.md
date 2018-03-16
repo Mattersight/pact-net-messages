@@ -119,7 +119,7 @@ private PactNetMessages.Mocks.MockMq.Models.Message SetupState()
 ```
 
 #### 2. Tell the provider it needs to honour the pact
-Create a new test case within your service provider test project, using whatever test framework you like (in this case we used xUnit).
+Create a new test case within your service provider test project, using whatever test framework you like (in this case we used NUnit).
 
 * Note: PactUri() Only supports local file paths currently since the Pact Broker does not handle v3 specifications yet.
 
