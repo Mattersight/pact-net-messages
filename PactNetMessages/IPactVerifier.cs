@@ -1,5 +1,5 @@
 ﻿using System;
-using PactNetMessages.Mocks.MockHttpService.Models;
+using PactNetMessages.Mocks.MockMq.Models;
 
 
 namespace PactNetMessages

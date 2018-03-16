@@ -5,7 +5,7 @@ using PactNetMessages.Mocks.MockMq.Matchers;
 using PactNetMessages.Models;
 
 
-namespace PactNetMessages.Mocks.MockHttpService.Models
+namespace PactNetMessages.Mocks.MockMq.Models
 {
     public class Message : Interaction
     {

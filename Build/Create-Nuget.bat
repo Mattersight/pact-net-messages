@@ -1,1 +1,1 @@
-powershell .\Publish-Release.ps1 "0.0.1" false
+powershell .\Publish-Release.ps1 "0.0.2" false

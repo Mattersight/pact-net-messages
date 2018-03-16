@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
-using PactNetMessages.Mocks.MockHttpService.Models;
 using PactNetMessages.Models;
 
 
