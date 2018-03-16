@@ -1,7 +1,7 @@
-# PactNetMeessages
+# PactNetMessages
 Pact.Net v3 implementation of message only for services that communicate via event streams and message queues.
 
-This project started off as a port of [PactNet 1.3.2](https://github.com/pact-foundation/pact-net/tree/1.3.2).  Implementations for HTTP request and response are not supported.  PactNetMessagess is aiming to be only compliant with the messages portion of the [Pact Specification Version 3](https://github.com/pact-foundation/pact-specification/tree/version-3). 
+This project started off as a port of [PactNet 1.3.2](https://github.com/pact-foundation/pact-net/tree/1.3.2).  Implementations for HTTP request and response are not supported.  PactNetMessages is aiming to be only compliant with the messages portion of the [Pact Specification Version 3](https://github.com/pact-foundation/pact-specification/tree/version-3). 
 
 Read more about Pact and the problems it solves at https://github.com/realestate-com-au/pact
 
@@ -50,7 +50,7 @@ It should have some sort of message handler.  Which may look something like this
 ```
 
 #### 2. Describe and configure the pact as a service consumer
-Create a new test case within your service consumer test project, using whatever test framework you like (in this case we used Nunit).  
+Create a new test case within your service consumer test project, using whatever test framework you like (in this case we used NUnit).  
 This should only be instantiated once for the consumer you are testing.
 
 ```c#
@@ -149,4 +149,3 @@ Everything should be green
 You might also find the following tool and library helpful:
 
 * [Pact.Net V3 Broker Connect](https://github.com/Mattersight/pact-net-v3-broker-connect): lUtility to bridge pact v3 specifications with the pact broker v1.1 support
-* 
