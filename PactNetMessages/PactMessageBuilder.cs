@@ -13,16 +13,25 @@ namespace PactNetMessages
     {
         private readonly IMockMq mockMq;
 
-        private readonly PactConfig pactConfig;
+        public readonly PactConfig pactConfig;
 
         public string ConsumerName { get; private set; }
 
         public string ProviderName { get; private set; }
 
-        public PactMessageBuilder()
+        internal PactMessageBuilder(PactConfig config, MockMq mq)
         {
-            pactConfig = new PactConfig();
-            mockMq = new MockMq();
+            pactConfig = config;
+            mockMq = mq;
+        }
+        public PactMessageBuilder()
+            : this(new PactConfig(), new MockMq())
+        {
+        }
+
+        public PactMessageBuilder(PactConfig config)
+            : this(config, new MockMq())
+        {
         }
 
         public IPactMessageBuilder ServiceConsumer(string consumerName)
