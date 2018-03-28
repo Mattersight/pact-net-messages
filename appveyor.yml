@@ -13,7 +13,7 @@ before_build:
   - cmd: dotnet restore 
 
 test_script:
-  - cmd: dotnet test
+  - cmd: dotnet test PactNetMessages.Tests
 
 on_success:
   - echo Success
