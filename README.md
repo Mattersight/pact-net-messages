@@ -1,4 +1,8 @@
 # PactNetMessages
+
+[![AppVeyor](https://ci.appveyor.com/api/projects/status/fb2sc3b59fskk0et?svg=true)](https://ci.appveyor.com/project/mattermack/pact-net-messages)
+
+
 Pact.Net v3 implementation of message only for services that communicate via event streams and message queues.
 
 This project started off as a port of [PactNet 1.3.2](https://github.com/pact-foundation/pact-net/tree/1.3.2).  Implementations for HTTP request and response are not supported.  PactNetMessages is aiming to be only compliant with the messages portion of the [Pact Specification Version 3](https://github.com/pact-foundation/pact-specification/tree/version-3). 
