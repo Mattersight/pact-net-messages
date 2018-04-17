@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using PactNetMessages.Comparers;
 using PactNetMessages.Matchers;
@@ -27,7 +28,9 @@ namespace PactNetMessages.Mocks.MockMq.Comparers
             }
 
             var expectedTokens = JToken.FromObject(expected);
-            var actualTokens = JToken.FromObject(actual);
+
+            //serializing first to match the same process as loading the pact from file
+            var actualTokens = JToken.Parse(JsonConvert.SerializeObject(actual));
 
 
             foreach (var rule in matchingRules)

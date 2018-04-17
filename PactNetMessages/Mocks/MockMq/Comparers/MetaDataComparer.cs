@@ -23,7 +23,9 @@ namespace PactNetMessages.Mocks.MockMq.Comparers
             }
 
             var expectedToken = JToken.FromObject(expected);
-            var actualToken = JToken.FromObject(actual);
+            
+            //serializing first to match the same process as loading the pact from file
+            var actualToken = JToken.Parse(JsonConvert.SerializeObject(actual));
 
             if (!JToken.DeepEquals(expectedToken, actualToken))
             {

@@ -201,5 +201,11 @@ namespace PactNetMessages.Tests.Specifications
         {
             RunTestCase("../../../Specifications/TestCases/Message/Body/unexpected key with null value.json");
         }
+
+        [Fact]
+        public void Guid_ShouldPass()
+        {
+            RunTestCase("../../../Specifications/TestCases/Message/Body/guid.json");
+        }
     }
 }

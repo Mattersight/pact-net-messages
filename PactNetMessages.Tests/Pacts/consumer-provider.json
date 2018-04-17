@@ -1,0 +1,21 @@
+{
+  "provider": {
+    "name": "provider"
+  },
+  "consumer": {
+    "name": "consumer"
+  },
+  "messages": [
+    {
+      "description": "Guid value",
+      "providerState": "Testing Guid",
+      "contents": {        
+        "Id": "00000000-0000-0000-0000-000000000000"        
+      },
+      "metaData": {}
+    }
+  ],
+  "metadata": {
+    "pactSpecificationVersion": "3.0"
+  }
+}
