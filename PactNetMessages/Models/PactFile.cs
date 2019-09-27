@@ -12,6 +12,10 @@ namespace PactNetMessages.Models
         {
             Metadata = new
             {
+                pactSpecification = new
+                {
+                    version = "3.0.0"
+                },
                 pactSpecificationVersion = "3.0"
             };
         }
